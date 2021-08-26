@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+
+
+    <title>Materiales</title>
+</head>
+<body>
+    <h1>INGESE MATERIALES PARA SU ENTEGA</h1>
+
+    <form
+        id="formulario"
+        class="needs-validation"
+        th:action="@{/clasificadores/__${action}__}"
+        method="POST"
+        th:object="${material}"
+        autocomplete="off"
+        novalidate
+      >
+    
+    
+        <input type="checkbox" id="checkBoxCarton" checked onclick="enableDisable(this.checked, 'textBoxCarton')">
+        <label for="checkBoxCarton">Carton</label>
+        <input type="text" id="textBoxCarton" th:field="*{carton}">
+        <br><br>
+        <input type="checkbox" id="checkBoxPlastico" checked onclick="enableDisable(this.checked, 'textBoxPlastico')">
+        <label for="checkBoxPlastico">Plastico</label>
+        <input type="text" id="textBoxPlastico" th:field="*{plastico}">
+        <br><br>
+        <input type="checkbox" id="checkBoxVidrio" checked onclick="enableDisable(this.checked, 'textBoxVidrio')">
+        <label for="checkBoxVidrio">Vidrio</label>
+        <input type="text" id="textBoxVidrio" th:field="*{vidrio}">
+        <br><br>
+        <input type="checkbox" id="checkBoxLatas" checked onclick="enableDisable(this.checked, 'textBoxLatas')">
+        <label for="checkBoxLatas">Latas</label>
+        <input type="text" id="textBoxLatas" th:field="*{latas}">
+        <br><br>
+        <input type="checkbox" id="checkBoxPapel" checked onclick="enableDisable(this.checked, 'textBoxPapel')">
+        <label for="checkBoxPapel">Papel</label>
+        <input type="text" id="textBoxPapel" th:field="*{papel}">
+
+
+
+        
+            <button
+              class="btn btn-success"
+              type="submit"
+              th:text="${action == 'guardar'} ? 'Agregar Materiales' : 'Guardar cambios'"
+            ></button>
+    
+
+    </form>
+    
+
+    <script language="javascript">
+    function enableDisable(bEnable, textBoxID)
+    {
+         document.getElementById(textBoxID).disabled = !bEnable
+    }
+    const form = document.getElementById("formulario");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      document.querySelectorAll("")
+    })
+</script>
+</body>
+</html>
